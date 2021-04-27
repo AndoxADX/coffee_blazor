@@ -1,0 +1,30 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "Internal.Web.Profile",
+            "type": "blazorwasm",
+            "request": "launch",
+            "program": "${workspaceFolder}/src/HCB.Internal.Web.Profile/bin/Debug/net5.0/HCB.Internal.Web.Profile.dll",
+            "cwd": "${workspaceFolder}/src/HCB.Internal.Web.Profile",
+            "url": "http://localhost:5000"
+        },
+        {
+            "name": "Internal.Web.RCL.Gallery",
+            "type": "blazorwasm",
+            "request": "launch",
+            "program": "${workspaceFolder}/src/HCB.Internal.Web.RCL.Gallery/bin/Debug/net5.0/HCB.Internal.Web.RCL.Gallery.dll",
+            "cwd": "${workspaceFolder}/src/HCB.Internal.Web.RCL.Gallery",
+            "url": "http://localhost:5000"
+        },
+        {
+            "name": "Attach Profile.Api",
+            "type": "docker",
+            "request": "attach",
+            "platform": "netCore",
+            "sourceFileMap": {
+                "/src": "${workspaceFolder}/src/"
+            }
+        }
+    ]
+}

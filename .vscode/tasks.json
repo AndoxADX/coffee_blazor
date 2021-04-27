@@ -1,0 +1,29 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "watch-internal.web.profile",
+            "command": "dotnet",
+            "type": "process",
+            "args": [
+                "watch",
+                "build",
+                "--project",
+                "${workspaceFolder}/src/HCB.Internal.Web.Profile/HCB.Internal.Web.Profile.csproj"
+            ],
+            "problemMatcher": "$msCompile"
+        },
+        {
+            "label": "watch-internal.web.rcl.gallery",
+            "command": "dotnet",
+            "type": "process",
+            "args": [
+                "watch",
+                "build",
+                "--project",
+                "${workspaceFolder}/src/HCB.Internal.Web.RCL.Gallery/HCB.Internal.Web.RCL.Gallery.csproj"
+            ],
+            "problemMatcher": "$msCompile"
+        }
+    ]
+}

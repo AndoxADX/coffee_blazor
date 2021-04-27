@@ -1,0 +1,67 @@
+version: '3.4'
+
+services:
+  # Nginx Reverse proxy
+  ## The re-route configuration lives here.
+  ## Refer to `nginx.conf` for more information.
+  nginx:
+    image: nginx:latest
+    restart: always
+    depends_on:
+      - profile
+      - gallery
+    ports:
+      - 8000:80
+    volumes: 
+      - ./nginx.conf:/etc/nginx/conf.d/default.conf
+    external_links:
+      - api:localhost
+    networks:
+      - back
+
+  # Micro-Frontend Deployments
+  ## Each individual micro-frontend are deployed independently
+  ### Gallery Deployment
+  gallery:
+    image: hcb.internal.web.rcl.gallery
+    build:
+      context: .
+      dockerfile: ./build/HCB.Internal.Web.RCL.Gallery.dockerfile
+    ports:
+      - 8001:80
+    networks:
+      - back
+  ### Profile Deployment
+  profile:
+    image: hcb.internal.web.profile
+    build:
+      context: .
+      dockerfile: ./build/HCB.Internal.Web.Profile.dockerfile
+    ports:
+      - 8002:80
+    networks:
+      - back
+ 
+  # Api Deployments
+  ## Each API are also deployed independently
+  ### ProfileApi deployment
+  profileapi:
+    image: hcb.profile.api
+    build:
+      context: .
+      dockerfile: ./build/HCB.Profile.Api.dockerfile
+    ports:
+      - 9000:80
+      - 9001:443
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+      # Below creates both port 443 and port 80
+      - ASPNETCORE_URLS=https://+;http://+
+    volumes:
+      # This allows debugging using vscode
+      - ~/.vsdbg:/remote_debugger:ro
+    networks:
+      - back
+
+networks:
+  back:

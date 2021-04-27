@@ -1,0 +1,34 @@
+@using HCB.Internal.Web.RCL
+
+
+@page "/components/modal"
+
+<h1>HCB.Internal.Web.RCL.Modal</h1>
+
+<!-- Button trigger modal -->
+<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal" @onclick="openModal">
+    Launch demo modal
+</button>
+
+<Modal @ref="child">
+    Soome child content text
+
+    <h1>
+        More Forms content
+    </h1>
+</Modal>
+
+@code{
+    public string text = "Show Something";
+    Modal child;
+
+    public void openModal()
+    {
+        child.openModal();
+    }
+
+    public void textChanged(string newText)
+    {
+        text = newText;
+    }
+}

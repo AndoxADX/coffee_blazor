@@ -1,0 +1,42 @@
+﻿@using System.Reflection
+@typeparam TItem
+
+<table class="table">
+    <thead>
+        <tr>
+            @foreach (var title in GetPropertyNames)
+            {
+                <th>@title.Name</th>
+            }
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in lists)
+        {
+            <tr>
+                @foreach (var title in GetPropertyNames)
+                {
+                    <td>@title.GetValue(item)</td>
+                }
+            </tr>
+        }
+    </tbody>
+</table>
+
+@code{
+
+    [Parameter]
+    public IList<TItem> lists { get; set; }
+
+    IEnumerable<PropertyInfo> _propertyNames { get; set; }
+    IEnumerable<PropertyInfo> GetPropertyNames
+    {
+        get
+        {
+            if (_propertyNames is null)
+                _propertyNames = typeof(TItem).GetProperties().ToList();
+
+            return _propertyNames;
+        }
+    }
+}
