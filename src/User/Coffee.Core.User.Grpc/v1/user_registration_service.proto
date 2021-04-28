@@ -1,0 +1,27 @@
+syntax = "proto3";
+
+option csharp_namespace = "Coffee.Core.User.Grpc";
+
+package coffee.core.user.v1;
+
+service  UserRegistrationService{
+  rpc RegisterNewUser (RegNewUserRequest) returns (NewUserResponse);
+}
+
+// The request message containing the user's name.
+message RegNewUserRequest {
+  int64 PhoneNumber = 1;
+  string CountryCode = 2;
+  string Password = 3;
+  string WeChatId = 4;
+  string SuperiorReferralCode = 5;
+  string VoucherCode = 6;
+  string OTP = 7;
+  int64 RegiondId = 8;
+  string Validate = 9;
+}
+
+// The response message containing the greetings.
+message NewUserResponse {
+  string UserId = 1;
+}
