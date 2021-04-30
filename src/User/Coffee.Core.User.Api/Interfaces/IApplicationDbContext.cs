@@ -7,11 +7,7 @@ namespace Coffee.Core.User.Api
 {
     public interface IApplicationDbContext
     {
-        DbSet<IdentityUser> AppUsers { get; set; }
-
-        // DbSet<TodoList> TodoLists { get; set; }
-
-        // DbSet<TodoItem> TodoItems { get; set; }
+        // DbSet<ApplicationUser> AppUsers { get; set; } // identity related is 
 
         Task<int> SaveChangesAsync(CancellationToken cancellationToken);
     }

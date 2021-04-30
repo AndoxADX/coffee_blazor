@@ -25,20 +25,6 @@ namespace Coffee.Core.User.Api
 
         public async Task<string> Handle(RegisterUserCommand request, CancellationToken cancellationToken)
         {
-            // var entity = new TodoItem
-            // {
-            //     ListId = request.ListId,
-            //     Title = request.Title,
-            //     Done = false
-            // };
-
-            // entity.DomainEvents.Add(new TodoItemCreatedEvent(entity));
-
-            // _context.TodoItems.Add(entity);
-
-            // await _context.SaveChangesAsync(cancellationToken);
-
-            // return entity.Id;
             var user = new IdentityUser{
                 Email = "Temp1",
                 UserName = request.Name,
@@ -46,10 +32,11 @@ namespace Coffee.Core.User.Api
             };
 
 
-            _context.AppUsers.Add(user);
+            // _context.AppUsers.Add(user);
+            // await _userManager.CreateAsync();
+            // await _identityService
             await _context.SaveChangesAsync(cancellationToken);
             return user.UserName;
-            // return Unit.Value;
         }
 
     }

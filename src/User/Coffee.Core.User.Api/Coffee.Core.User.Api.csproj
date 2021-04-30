@@ -9,6 +9,8 @@
     <PackageReference Include="AutoMapper.Extensions.Microsoft.DependencyInjection" Version="7.0.0" />
     <PackageReference Include="Microsoft.EntityFrameworkCore" Version="5.0.0" />
 
+    <PackageReference Include="FluentValidation.AspNetCore" Version="9.3.0" />
+
     <PackageReference Include="Grpc.AspNetCore" Version="2.34.0" />
     <PackageReference Include="Google.Protobuf" Version="3.15.1" />
     <PackageReference Include="Grpc.Tools" Version="2.37.0">
@@ -20,6 +22,7 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Coffee.Core.User.Domain\Coffee.Core.User.Domain.csproj"/>
+    <ProjectReference Include="..\Coffee.Core.User.Infrastructure\Coffee.Core.User.Infrastructure.csproj"/>
     <!-- <ProjectReference Include="..\Coffee.Core.User.Grpc\Coffee.Core.User.Grpc.csproj"/> -->
   </ItemGroup>
 </Project>
