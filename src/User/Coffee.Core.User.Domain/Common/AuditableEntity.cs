@@ -1,6 +1,6 @@
 using System;
 
-namespace Coffee.Core.User.Api
+namespace Coffee.Core.User.Domain
 {
     public abstract class AuditableEntity
     {

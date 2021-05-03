@@ -3,8 +3,9 @@ using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Text.Json.Serialization;
 using Microsoft.AspNetCore.Identity;
+using Coffee.Core.User.Domain;
 
-namespace Coffee.Core.User.Api
+namespace Coffee.Core.User.Infrastructure
 {
     public class UserKYC2 : AuditableEntity
     {

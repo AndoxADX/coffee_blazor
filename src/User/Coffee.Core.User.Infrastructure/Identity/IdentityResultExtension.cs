@@ -1,4 +1,4 @@
-using AspNetCleanArchitecture.Application.Common.Models;
+using Coffee.Core.User.Application;
 using Microsoft.AspNetCore.Identity;
 using System.Linq;
 

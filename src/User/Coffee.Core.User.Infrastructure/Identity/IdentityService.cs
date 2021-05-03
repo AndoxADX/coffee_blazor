@@ -1,5 +1,4 @@
-using AspNetCleanArchitecture.Application.Common.Interfaces;
-using AspNetCleanArchitecture.Application.Common.Models;
+using Coffee.Core.User.Application;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;

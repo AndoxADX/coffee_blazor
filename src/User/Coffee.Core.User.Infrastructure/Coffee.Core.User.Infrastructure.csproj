@@ -10,9 +10,10 @@
    <PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="5.0.0" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.InMemory" Version="5.0.0" />
     <PackageReference Include="Microsoft.AspNetCore.ApiAuthorization.IdentityServer" Version="5.0.0" />
+    <PackageReference Include="MySql.EntityFrameworkCore" Version="5.0.0" />
   </ItemGroup>
-<!-- 
+
   <ItemGroup>
-    <ProjectReference Include="..\Coffee.Core.User.Api\Coffee.Core.User.Api.csproj" />
-  </ItemGroup> -->
+    <ProjectReference Include="..\Coffee.Core.User.Application\Coffee.Core.User.Application.csproj" />
+  </ItemGroup>
 </Project>

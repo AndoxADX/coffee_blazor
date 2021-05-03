@@ -1,8 +1,5 @@
-using AspNetCleanArchitecture.Application.Common.Interfaces;
-using AspNetCleanArchitecture.Infrastructure.Files;
-using AspNetCleanArchitecture.Infrastructure.Identity;
-using AspNetCleanArchitecture.Infrastructure.Persistence;
-using AspNetCleanArchitecture.Infrastructure.Services;
+using Coffee.Core.User.Application;
+using Coffee.Core.User.Infrastructure.Persistence;
 using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
@@ -23,14 +20,14 @@ namespace Coffee.Core.User.Infrastructure
             else
             {
                 services.AddDbContext<ApplicationDbContext>(options =>
-                    options.UseSqlServer(
+                    options.UseMySQL(
                         configuration.GetConnectionString("DefaultConnection"),
                         b => b.MigrationsAssembly(typeof(ApplicationDbContext).Assembly.FullName)));
             }
 
             services.AddScoped<IApplicationDbContext>(provider => provider.GetService<ApplicationDbContext>());
 
-            services.AddScoped<IDomainEventService, DomainEventService>();
+            // services.AddScoped<IDomainEventService, DomainEventService>();
 
             services
                 .AddDefaultIdentity<ApplicationUser>()
@@ -40,9 +37,9 @@ namespace Coffee.Core.User.Infrastructure
             services.AddIdentityServer()
                 .AddApiAuthorization<ApplicationUser, ApplicationDbContext>();
 
-            services.AddTransient<IDateTime, DateTimeService>();
+            // services.AddTransient<IDateTime, DateTimeService>();
             services.AddTransient<IIdentityService, IdentityService>();
-            services.AddTransient<ICsvFileBuilder, CsvFileBuilder>();
+            // services.AddTransient<ICsvFileBuilder, CsvFileBuilder>();
 
             services.AddAuthentication()
                 .AddIdentityServerJwt();
